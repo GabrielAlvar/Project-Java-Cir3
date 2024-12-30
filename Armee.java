@@ -1,35 +1,46 @@
-public class Armee {
-    private String nom;
+import java.util.ArrayList;
+import java.util.List;
+
+class Armee {
+    private String name;
     private String faction;
-    private Integer nbMaxPointsArmee;
+    private int maxPoints;
+    private List<Group> groups;
 
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getFaction() {
-        return faction;
-    }
-
-    public void setFaction(String faction) {
+    public Army(String name, String faction, int maxPoints) {
+        this.name = name;
         this.faction = faction;
+        this.maxPoints = maxPoints;
+        this.groups = new ArrayList<>();
     }
 
-    public Integer getNbMaxPointsArmee() {
-        return nbMaxPointsArmee;
+    public String getName() {
+        return name;
     }
 
-    public void setNbMaxPointsArmee(Integer nbMaxPointsArmee) {
-        this.nbMaxPointsArmee = nbMaxPointsArmee;
+    public void addGroup(Group group) {
+        groups.add(group);
     }
 
-    public Armee(String nom, String faction, Integer nbMaxPointsArmee) {
-        this.nom = nom;
-        this.faction = faction;
-        this.nbMaxPointsArmee = nbMaxPointsArmee;
+    public void removeGroup(int index) {
+        if (index >= 0 && index < groups.size()) {
+            groups.remove(index);
+        }
+    }
+
+    public int getTotalPoints() {
+        return groups.stream().mapToInt(Group::getTotalPoints).sum();
+    }
+
+    public void print() {
+        System.out.println("Armée : " + name);
+        System.out.println("Faction : " + faction);
+        System.out.println("Points max : " + maxPoints);
+        System.out.println("Points utilisés : " + getTotalPoints());
+        System.out.println("Groupes :");
+        for (int i = 0; i < groups.size(); i++) {
+            System.out.println("  Groupe " + i + ":");
+            groups.get(i).print();
+        }
     }
 }
