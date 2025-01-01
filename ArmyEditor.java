@@ -79,8 +79,8 @@ public class ArmyEditor {
                     System.out.print("Index du groupe : ");
                     groupIndex = scanner.nextInt();
                     scanner.nextLine();
-                    if (groupIndex >= 0 && groupIndex < army.groups.size()) {
-                        addUnitToGroup(army.groups.get(groupIndex), scanner);
+                    if (groupIndex >= 0 && groupIndex < army.getGroup().size()) {
+                        addUnitToGroup(army.getGroup().get(groupIndex), scanner);
                     } else {
                         System.out.println("Index invalide.");
                     }
@@ -89,11 +89,11 @@ public class ArmyEditor {
                     System.out.print("Index du groupe : ");
                     groupIndex = scanner.nextInt();
                     scanner.nextLine();
-                    if (groupIndex >= 0 && groupIndex < army.groups.size()) {
+                    if (groupIndex >= 0 && groupIndex < army.getGroup().size()) {
                         System.out.print("Index de l'unité à supprimer : ");
                         int unitIndex = scanner.nextInt();
                         scanner.nextLine();
-                        army.groups.get(groupIndex).removeUnit(unitIndex);
+                        army.getGroup().get(groupIndex).removeUnit(unitIndex);
                         System.out.println("Unité supprimée.");
                     } else {
                         System.out.println("Index invalide.");

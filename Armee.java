@@ -7,7 +7,7 @@ class Armee {
     private int maxPoints;
     private List<Group> groups;
 
-    public Army(String name, String faction, int maxPoints) {
+    public Armee(String name, String faction, int maxPoints) {
         this.name = name;
         this.faction = faction;
         this.maxPoints = maxPoints;
@@ -16,6 +16,9 @@ class Armee {
 
     public String getName() {
         return name;
+    }
+    public List<Group> getGroup() {
+        return groups;
     }
 
     public void addGroup(Group group) {
