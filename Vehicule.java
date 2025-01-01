@@ -1,8 +1,8 @@
-class Vehicle extends unite {
+class Vehicule extends unite {
     private String vehicleType;
     private int transportCapacity;
 
-    public Vehicle(String name, int cost, String vehicleType, int transportCapacity) {
+    public Vehicule(String name, int cost, String vehicleType, int transportCapacity) {
         super(name, cost);
         this.vehicleType = vehicleType;
         this.transportCapacity = transportCapacity;
