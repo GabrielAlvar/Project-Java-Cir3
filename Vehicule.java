@@ -1,13 +1,13 @@
-// Classe qui représente une unité de véhicule, héritée de la classe abstraite 'unite'
+// classe qui représente une unité de véhicule, héritée de la classe abstraite 'unite'
 class Vehicule extends unite {
     private String vehicleType; // Type de véhicule (Transport ou Attaque)
     private int transportCapacity; // Capacité de transport du véhicule (pertinent pour les véhicules de type Transport)
 
-    // Constructeur de vehicule
+    //constructeur de vehicule
     public Vehicule(String name, int cost, String vehicleType, int transportCapacity) {
-        super(name, cost); // Appel au constructeur de la classe 'unite' pour initialiser le nom et le coût
-        this.vehicleType = vehicleType; // Initialisation du type de véhicule
-        this.transportCapacity = transportCapacity; // Initialisation de la capacité de transport
+        super(name, cost); //appel au constructeur de la classe 'unite' pour initialiser le nom et le coût
+        this.vehicleType = vehicleType; //initialisation du type de véhicule
+        this.transportCapacity = transportCapacity; //initialisation de la capacité de transport
     }
 
 
