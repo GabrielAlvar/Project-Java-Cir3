@@ -25,7 +25,7 @@ class Armee {
         return groups;
     }
 
-    // Méthode pour ajouter un groupe à l'armée
+    //méthode pour ajouter un groupe à l'armée
     public void addGroup(Group group) {
         if (getTotalPoints() + group.getTotalPoints() <= maxPoints) {
             groups.add(group);
@@ -34,20 +34,20 @@ class Armee {
         }
     }
 
-    // Méthode pour supprimer un groupe à partir de son index
+    //méthode pour supprimer un groupe à partir de son index
     public void removeGroup(int index) {
         if (index >= 0 && index < groups.size()) {
             groups.remove(index); // Supprimer le groupe à l'index spécifié
         }
     }
 
-    // Méthode pour calculer le total des points utilisés par l'armée
+    //méthode pour calculer le total des points utilisés par l'armée
     public int getTotalPoints() {
         // Utilise la méthode getTotalPoints() de chaque groupe pour calculer le total des points
         return groups.stream().mapToInt(Group::getTotalPoints).sum();
     }
 
-    // Méthode pour afficher les informations de l'armée
+    //méthode pour afficher les informations de l'armée
     public void print() {
         System.out.println("Armée : " + name); // Affichage du nom de l'armée
         System.out.println("Faction : " + faction); // Affichage de la faction
@@ -55,7 +55,7 @@ class Armee {
         System.out.println("Points utilisés : " + getTotalPoints()); // Affichage des points utilisés
         System.out.println("Groupes :");
 
-        // Affichage des informations de chaque groupe de l'armée
+        //affichage des informations de chaque groupe de l'armée
         for (int i = 0; i < groups.size(); i++) {
             System.out.println("  Groupe " + i + ":");
             groups.get(i).print(); // Affichage des détails de chaque groupe
