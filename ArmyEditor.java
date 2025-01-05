@@ -138,40 +138,45 @@ public class ArmyEditor {
         }
         else{
 
-        //ajout de l'unité en fonction du type choisi
-        if (unitType == 1) {
-            System.out.print("Type d'infanterie (Soldat, Lourd, Spécial, Chef) : ");
-            String infantryType = scanner.nextLine(); // Lecture du type d'infanterie
-            group.addUnit(new Infantry(unitName, unitCost, infantryType)); // Ajout de l'unité d'infanterie
-        } else if (unitType == 2) {
-            System.out.print("Type de véhicule (Transport ou Attaque) : ");
-            String vehicleType = scanner.nextLine(); // Lecture du type de véhicule
-            int transportCapacity = 0;
-            // Si c'est un véhicule de transport, on demande la capacité
-            if (vehicleType.equalsIgnoreCase("Transport")) {
-                System.out.print("Capacité de transport : ");
-                transportCapacity = scanner.nextInt();
-                scanner.nextLine();
-            }
-            group.addUnit(new Vehicule(unitName, unitCost, vehicleType, transportCapacity)); // Ajout du véhicule
-        } else {
-            System.out.println("Type d'unité invalide.");
+            //ajout de l'unité en fonction du type choisi
             if (unitType == 1) {
                 System.out.print("Type d'infanterie (Soldat, Lourd, Spécial, Chef) : ");
-                String infantryType = scanner.nextLine();
-                group.addUnit(new Infantry(unitName, unitCost, infantryType));
-            } else if (unitType == 2) {
+                String infantryType = scanner.nextLine(); // Lecture du type d'infanterie
+                group.addUnit(new Infantry(unitName, unitCost, infantryType)); // Ajout de l'unité d'infanterie
+            }
+            else if (unitType == 2) {
                 System.out.print("Type de véhicule (Transport ou Attaque) : ");
-                String vehicleType = scanner.nextLine();
+                String vehicleType = scanner.nextLine(); // Lecture du type de véhicule
                 int transportCapacity = 0;
+                // Si c'est un véhicule de transport, on demande la capacité
                 if (vehicleType.equalsIgnoreCase("Transport")) {
                     System.out.print("Capacité de transport : ");
                     transportCapacity = scanner.nextInt();
                     scanner.nextLine();
                 }
-                group.addUnit(new Vehicule(unitName, unitCost, vehicleType, transportCapacity));
-            } else {
+                group.addUnit(new Vehicule(unitName, unitCost, vehicleType, transportCapacity)); // Ajout du véhicule
+            }
+            else {
                 System.out.println("Type d'unité invalide.");
+                if (unitType == 1) {
+                    System.out.print("Type d'infanterie (Soldat, Lourd, Spécial, Chef) : ");
+                    String infantryType = scanner.nextLine();
+                    group.addUnit(new Infantry(unitName, unitCost, infantryType));
+                }
+                else if (unitType == 2) {
+                    System.out.print("Type de véhicule (Transport ou Attaque) : ");
+                    String vehicleType = scanner.nextLine();
+                    int transportCapacity = 0;
+                    if (vehicleType.equalsIgnoreCase("Transport")) {
+                        System.out.print("Capacité de transport : ");
+                        transportCapacity = scanner.nextInt();
+                        scanner.nextLine();
+                    }
+                    group.addUnit(new Vehicule(unitName, unitCost, vehicleType, transportCapacity));
+                }
+                else {
+                    System.out.println("Type d'unité invalide.");
+                }
             }
         }
     }
