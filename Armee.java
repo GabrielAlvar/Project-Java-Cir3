@@ -24,6 +24,10 @@ class Armee {
     public List<Group> getGroup() {
         return groups;
     }
+    
+    public int getMaxPoints() {
+        return maxPoints;
+    }
 
     //méthode pour ajouter un groupe à l'armée
     public void addGroup(Group group) {

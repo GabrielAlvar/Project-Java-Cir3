@@ -88,7 +88,7 @@ public class ArmyEditor {
                     groupIndex = scanner.nextInt(); // Lecture de l'index du groupe
                     scanner.nextLine();
                     if (groupIndex >= 0 && groupIndex < army.getGroup().size()) {
-                        addUnitToGroup(army.getGroup().get(groupIndex), scanner); // Ajout de l'unité
+                        addUnitToGroup(army, army.getGroup().get(groupIndex), scanner);// Ajout de l'unité
                     } else {
                         System.out.println("Index invalide.");
                     }
@@ -120,7 +120,7 @@ public class ArmyEditor {
     }
 
     //méthode pour ajouter une unité à un groupe
-    private static void addUnitToGroup(Group group, Scanner scanner) {
+    private static void addUnitToGroup(Armee army, Group group, Scanner scanner) {
         // Choix du type d'unité
         System.out.println("Type d'unité : 1. Infanterie, 2. Véhicule");
         System.out.print("Votre choix : ");
@@ -133,6 +133,10 @@ public class ArmyEditor {
         System.out.print("Coût de l'unité : ");
         int unitCost = scanner.nextInt();
         scanner.nextLine();
+        if(army.getMaxPoints() <= army.getTotalPoints() + unitCost) {
+            System.out.println("Cout d'unité invalide");
+        }
+        else{
 
         //ajout de l'unité en fonction du type choisi
         if (unitType == 1) {
@@ -152,6 +156,23 @@ public class ArmyEditor {
             group.addUnit(new Vehicule(unitName, unitCost, vehicleType, transportCapacity)); // Ajout du véhicule
         } else {
             System.out.println("Type d'unité invalide.");
+            if (unitType == 1) {
+                System.out.print("Type d'infanterie (Soldat, Lourd, Spécial, Chef) : ");
+                String infantryType = scanner.nextLine();
+                group.addUnit(new Infantry(unitName, unitCost, infantryType));
+            } else if (unitType == 2) {
+                System.out.print("Type de véhicule (Transport ou Attaque) : ");
+                String vehicleType = scanner.nextLine();
+                int transportCapacity = 0;
+                if (vehicleType.equalsIgnoreCase("Transport")) {
+                    System.out.print("Capacité de transport : ");
+                    transportCapacity = scanner.nextInt();
+                    scanner.nextLine();
+                }
+                group.addUnit(new Vehicule(unitName, unitCost, vehicleType, transportCapacity));
+            } else {
+                System.out.println("Type d'unité invalide.");
+            }
         }
     }
 }
