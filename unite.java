@@ -3,7 +3,7 @@ abstract class unite {
     private String name; // Nom de l'unité
     private int cost; // Coût de l'unité en points
 
-    // Constructeur pour initialiser les attributs de l'unité
+    //constructeur pour initialiser les attributs de l'unité
     public unite(String name, int cost) {
         this.name = name;
         this.cost = cost;
