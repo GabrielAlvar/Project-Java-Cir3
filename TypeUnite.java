@@ -1,3 +1,3 @@
-public enum TypeUnite {
+public enum TypeUnite { //supprimer
     Soldat,Lourd,Special,Chef
 }
