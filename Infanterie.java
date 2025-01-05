@@ -1,4 +1,4 @@
-// Classe infanterie, héritée de la classe abstraite 'unite'
+// Classe infanterie, héritée de la classe abstraite 'unite'aaa
 class Infantry extends unite {
     private String type; // Type de l'infanterie (Soldat, Lourd, Spécial, Chef, etc.)
 
